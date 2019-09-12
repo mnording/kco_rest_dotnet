@@ -158,7 +158,7 @@ namespace Klarna.Rest.Core.Commuication
             return message;
         }
 
-        private HttpClient GetClient(WebProxy proxy)
+        private HttpClient GetClient(WebProxy proxy=null)
         {
 
             var handler = new HttpClientHandler();
