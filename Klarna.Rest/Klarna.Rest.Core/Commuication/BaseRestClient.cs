@@ -158,9 +158,15 @@ namespace Klarna.Rest.Core.Commuication
             return message;
         }
 
-        private HttpClient GetClient()
+        private HttpClient GetClient(WebProxy proxy)
         {
+
             var handler = new HttpClientHandler();
+            if (proxy != null)
+            {
+                handler.Proxy = proxy;
+                handler.UseProxy = true; 
+            }
             if (handler.SupportsAutomaticDecompression)
             {
                 handler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
